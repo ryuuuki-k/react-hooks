@@ -1,5 +1,6 @@
 import { VFC, createContext, useState } from 'react';
 import './App.css';
+import Name from './Contexts/Name';
 import Child1 from './components/Child1';
 
 export const UserName = createContext(
@@ -17,7 +18,9 @@ const App: VFC = () => {
       <div className="App">
         <header className="App-header">
           <h3>useContext Practice🧝🏻</h3>
-          <Child1 />
+          <Name>
+            <Child1 />
+          </Name>
           <a
             className="App-link"
             href="https://github.com/ryuuuki-k/react-hooks"

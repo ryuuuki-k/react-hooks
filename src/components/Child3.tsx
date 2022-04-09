@@ -1,8 +1,8 @@
 import { VFC, useContext } from 'react';
-import { UserName } from '../App';
+import { ContextVal } from '../Contexts/Name';
 
 const Child3: VFC = () => {
-  const { name, setName } = useContext(UserName);
+  const { name, setName } = useContext(ContextVal);
   return (
     <div>
       <div>{name} in Child3</div>
