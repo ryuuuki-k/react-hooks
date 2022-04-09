@@ -1,14 +1,17 @@
-import { VFC } from 'react';
-import logo from './logo.svg';
+import { VFC, useState, useCallback } from 'react';
 import './App.css';
+import Child from './Components/Child';
 
 const App: VFC = () => {
+  const [num, setNum] = useState(0);
+  const increment = () => setNum((curVal) => curVal + 1);
+  const useCB = useCallback(increment, []);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <h3>React Hooks Practice🧝🏻</h3>
+        <h3>memo Practice🧝🏻</h3>
+        <p>{num}</p>
+        <Child incrementUseCB={useCB} />
         <a
           className="App-link"
           href="https://github.com/ryuuuki-k/react-hooks"
