@@ -1,24 +1,34 @@
-import { VFC } from 'react';
-import logo from './logo.svg';
+import { VFC, createContext, useState } from 'react';
 import './App.css';
+import Child1 from './components/Child1';
+
+export const UserName = createContext(
+  {} as { name: string; setName: React.Dispatch<React.SetStateAction<string>> }
+);
 
 const App: VFC = () => {
+  const [name, setName] = useState('hoge');
+  const value = {
+    name,
+    setName,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <h3>React Hooks Practice🧝🏻</h3>
-        <a
-          className="App-link"
-          href="https://github.com/ryuuuki-k/react-hooks"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Repository Link
-        </a>
-      </header>
-    </div>
+    <UserName.Provider value={value}>
+      <div className="App">
+        <header className="App-header">
+          <h3>useContext Practice🧝🏻</h3>
+          <Child1 />
+          <a
+            className="App-link"
+            href="https://github.com/ryuuuki-k/react-hooks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repository Link
+          </a>
+        </header>
+      </div>
+    </UserName.Provider>
   );
 };
 
