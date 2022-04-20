@@ -1,14 +1,14 @@
 import { VFC } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Child from './component/Child';
 
 const App: VFC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <h3>React Hooks Practice🧝🏻</h3>
+        <h3>React Hooks Form</h3>
+        <Child />
         <a
           className="App-link"
           href="https://github.com/ryuuuki-k/react-hooks"
